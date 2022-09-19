@@ -1,8 +1,8 @@
 import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import { useUser } from '@supabase/auth-helpers-react'
-import { Auth } from '@supabase/ui'
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
+import AuthLogin from '../components/AuthLogin'
 
 const Home: NextPage = () => {
   const { user, error } = useUser()
@@ -19,19 +19,7 @@ const Home: NextPage = () => {
 
   if (!user) {
     console.error(error)
-    return (
-      <>
-        <div className='prose prose-zinc lg:prose-xl mx-auto'>
-          <div className='grid place-items-center h-screen'>
-            <Auth
-              supabaseClient={supabaseClient}
-              socialButtonSize='medium'
-              socialLayout='horizontal'
-            />
-          </div>
-        </div>
-      </>
-    )
+    return <AuthLogin/>
   }
 
   return (
@@ -41,7 +29,7 @@ const Home: NextPage = () => {
           <button onClick={() => supabaseClient.auth.signOut()}> Sign out</button>
         </div>
       </nav>
-      <div className='prose prose-zinc lg:prose-xl mx-auto'>
+      <div className='prose prose-zinc prose-invert lg:prose-xl mx-auto'>
         <div className='grid place-items-center h-screen'>
           <h1>Welcome User {user?.id}</h1>
         </div>
