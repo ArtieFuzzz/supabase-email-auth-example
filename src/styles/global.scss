@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$selection-color: #f9a8d4;
+
+::-moz-selection {
+  background: $selection-color;
+}
+
+::selection {
+  background: $selection-color;
+}
