@@ -24,14 +24,14 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <nav className='flex flex-wrap items-center justify-between p-3'>
+      <nav className='flex flex-wrap items-center justify-between p-3 mx-auto'>
         <div className='flex'>
           <button onClick={() => supabaseClient.auth.signOut()}> Sign out</button>
         </div>
       </nav>
       <div className='prose prose-zinc prose-invert lg:prose-xl mx-auto'>
-        <div className='grid place-items-center h-screen'>
-          <h1>Welcome User {user?.id}</h1>
+        <div className='grid justify-center place-items-center h-[90vh]'>
+          <h1 className='text-white'>Welcome User {user?.id}</h1>
         </div>
       </div>
     </>
